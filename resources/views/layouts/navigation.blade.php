@@ -19,6 +19,10 @@
                     <x-nav-link :href="route('myChat')" :active="request()->routeIs('myChat')">
                         {{ __('Chat Portal') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('myBio')" :active="request()->routeIs('myBio')">
+                        {{ __('Biometric') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -3,10 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BioController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+ //biometric route
+ Route::get('/my-bio', [BioController::class, 'index'])->name('myBio');
+ Route::post('/fingerprint', [BioController::class, 'upload'])->name('myBio.upload');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,6 +32,8 @@ Route::middleware('auth')->group(function () {
     //Route::get('/chat/send', [MessageController::class, 'sendTest']);
     Route::get('/my-chat', [MessageController::class, 'myChat'])->name('myChat');
     Route::get('/chat/unread-counts', [MessageController::class, 'unreadCounts'])->name('chat.unreadCounts');
+
+   
 
 });
 
